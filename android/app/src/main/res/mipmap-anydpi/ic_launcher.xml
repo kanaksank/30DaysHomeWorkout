@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Legacy launcher icon (API 23-25). Negative insets draw the mark a little
+     larger than the adaptive foreground, since no icon mask crops it here. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/ic_launcher_background" />
+    <item
+        android:drawable="@drawable/ic_launcher_foreground"
+        android:left="-8dp"
+        android:top="-8dp"
+        android:right="-8dp"
+        android:bottom="-8dp" />
+</layer-list>
