@@ -27,14 +27,31 @@ no login**.
 - **Local reminders** — a daily notification carrying that day's original message.
 - **Challenge Level 2+** — restarting generates a harder progression, history is kept.
 
-## Getting started
+## Building
+
+Requires Flutter 3.19+ / Dart 3.3+.
 
 ```bash
 flutter pub get
-flutter run
+flutter run                 # debug build on a connected device
+flutter build apk --release # installable APK
 ```
 
-Requires Flutter 3.19+ / Dart 3.3+. Android and iOS.
+The `android/` project is checked in (`com.kanaksank.homeworkout30`, minSdk 23,
+compileSdk 34, AGP 8.3 / Gradle 8.4). Notes:
+
+- **Core library desugaring is on** — `flutter_local_notifications` 17.x needs it.
+- **The release manifest asks for no `INTERNET` permission**, so the app is offline
+  by construction; the debug and profile manifests add it only for the Flutter
+  tooling socket.
+- `POST_NOTIFICATIONS`, `RECEIVE_BOOT_COMPLETED` and the plugin's boot receivers are
+  declared so the daily reminder survives a reboot.
+- The launcher icon and splash mark are vector drawables (`ic_launcher_foreground.xml`)
+  — adaptive on API 26+, a layer-list fallback below that. No bitmap assets.
+- The release build is signed with the debug key so a personal build works out of the
+  box. Add a real keystore + `key.properties` before shipping to Play.
+- `gradlew` / the wrapper JAR are not committed; the Flutter tool drops them in on the
+  first build. `android/local.properties` is likewise generated locally.
 
 ## Project layout
 
@@ -52,6 +69,7 @@ lib/
   widgets/exercise_animation.dart   code-drawn offline exercise animations
   screens/                      onboarding, safety, home, challenge, progress,
                                 settings, workout player, completion, finale
+android/                        Android platform layer (manifest, Gradle, icon)
 docs/PROGRAM_DESIGN.md          methodology + sources
 ```
 
