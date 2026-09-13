@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 ///
 /// Each exercise is described as two or three key poses of a simple stick
 /// figure. The widget eases between them and back again, which reads as
-/// "start position \u2192 movement \u2192 return position" without shipping a single
+/// "start position → movement → return position" without shipping a single
 /// video, Lottie or Rive file. The whole library is a few kilobytes of code and
 /// therefore always available offline.
 class Pose {
@@ -74,20 +74,6 @@ const Pose _plankHands = Pose(
   handL: Offset(.27, .78),
   elbowR: Offset(.30, .63),
   handR: Offset(.30, .79),
-);
-
-const Pose _supine = Pose(
-  head: Offset(.18, .64),
-  neck: Offset(.27, .66),
-  hip: Offset(.56, .68),
-  kneeL: Offset(.70, .68),
-  ankleL: Offset(.86, .70),
-  kneeR: Offset(.71, .70),
-  ankleR: Offset(.87, .72),
-  elbowL: Offset(.34, .72),
-  handL: Offset(.44, .74),
-  elbowR: Offset(.35, .74),
-  handR: Offset(.45, .76),
 );
 
 const Pose _prone = Pose(
@@ -1327,7 +1313,7 @@ class _ExerciseAnimationState extends State<ExerciseAnimation>
       builder: (context, _) {
         final eased = Curves.easeInOut.transform(_c.value);
         final span = poses.length - 1;
-        final scaled = (eased * span).clamp(0, span.toDouble());
+        final scaled = (eased * span).clamp(0.0, span.toDouble());
         final i = scaled.floor().clamp(0, span - 1 < 0 ? 0 : span - 1);
         final t = span == 0 ? 0.0 : scaled - i;
         final pose = span == 0
