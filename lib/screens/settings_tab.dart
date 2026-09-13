@@ -5,7 +5,7 @@ import '../services/notifications.dart';
 import '../state/app_state.dart';
 import 'safety_screen.dart';
 
-/// Duration, level, reminder, sound/haptics, theme and privacy \u2014 nothing more.
+/// Duration, level, reminder, sound/haptics, theme and privacy — nothing more.
 class SettingsTab extends StatelessWidget {
   const SettingsTab({super.key});
 
@@ -21,7 +21,7 @@ class SettingsTab extends StatelessWidget {
           Text('Settings', style: t.textTheme.headlineMedium),
           const SizedBox(height: 18),
 
-          _SectionLabel('Workout duration'),
+          const _SectionLabel('Workout duration'),
           Wrap(
             spacing: 8,
             runSpacing: 8,
@@ -36,7 +36,7 @@ class SettingsTab extends StatelessWidget {
           ),
 
           const SizedBox(height: 22),
-          _SectionLabel('Fitness level'),
+          const _SectionLabel('Fitness level'),
           Wrap(
             spacing: 8,
             runSpacing: 8,
@@ -51,11 +51,11 @@ class SettingsTab extends StatelessWidget {
           ),
 
           const SizedBox(height: 22),
-          _SectionLabel('Reminder'),
+          const _SectionLabel('Reminder'),
           SwitchListTile(
             contentPadding: EdgeInsets.zero,
             title: const Text('Daily reminder'),
-            subtitle: const Text('A local notification with that day\u2019s message.'),
+            subtitle: const Text('A local notification with that day’s message.'),
             value: state.reminderEnabled,
             onChanged: (v) async {
               if (v) await NotificationService.instance.requestPermission();
@@ -82,7 +82,7 @@ class SettingsTab extends StatelessWidget {
             ),
 
           const SizedBox(height: 22),
-          _SectionLabel('Sound & haptics'),
+          const _SectionLabel('Sound & haptics'),
           SwitchListTile(
             contentPadding: EdgeInsets.zero,
             title: const Text('Sound cues'),
@@ -97,7 +97,7 @@ class SettingsTab extends StatelessWidget {
           ),
 
           const SizedBox(height: 22),
-          _SectionLabel('Appearance'),
+          const _SectionLabel('Appearance'),
           Wrap(
             spacing: 8,
             children: [
@@ -120,7 +120,7 @@ class SettingsTab extends StatelessWidget {
           ),
 
           const SizedBox(height: 22),
-          _SectionLabel('Privacy'),
+          const _SectionLabel('Privacy'),
           ListTile(
             contentPadding: EdgeInsets.zero,
             leading: const Icon(Icons.privacy_tip_outlined),
@@ -132,7 +132,7 @@ class SettingsTab extends StatelessWidget {
           ),
 
           const SizedBox(height: 22),
-          _SectionLabel('Reset'),
+          const _SectionLabel('Reset'),
           OutlinedButton.icon(
             style: OutlinedButton.styleFrom(foregroundColor: Colors.red),
             onPressed: () async {

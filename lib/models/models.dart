@@ -205,7 +205,7 @@ class WorkoutBlock {
 
   String get subtitle {
     final mins = (totalSeconds / 60).round();
-    if (rounds > 1) return '$rounds rounds \u00b7 ${mins} min';
+    if (rounds > 1) return '$rounds rounds · $mins min';
     return '$mins min';
   }
 }
