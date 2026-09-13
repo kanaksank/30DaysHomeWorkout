@@ -50,7 +50,6 @@ class DayBlueprint {
 }
 
 /// Shorthand pools reused across days.
-const _wUp = ['w_march', 'w_armcircle', 'w_hipcircle', 'w_torsotwist', 'w_anklerock'];
 const _wUpper = ['w_march', 'w_armcircle', 'w_shoulderroll', 'w_catcow', 'w_sidebend'];
 const _wLower = ['w_march', 'w_hipcircle', 'w_legswing', 'w_squatrock', 'w_anklerock'];
 const _wCardio = ['w_march', 'w_stepjack', 'w_armcircle', 'w_torsotwist', 'w_legswing'];
