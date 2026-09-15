@@ -5,12 +5,15 @@ allprojects {
     }
 }
 
-rootProject.buildDir = "../build"
+// Keep build output in <project>/build, where the Flutter tool looks for the
+// APK. layout.buildDirectory rather than buildDir, which Gradle 9 removes.
+rootProject.layout.buildDirectory.set(rootProject.layout.projectDirectory.dir("../build"))
+
 subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    project.layout.buildDirectory.set(rootProject.layout.buildDirectory.dir(project.name))
     project.evaluationDependsOn(":app")
 }
 
 tasks.register("clean", Delete) {
-    delete rootProject.buildDir
+    delete rootProject.layout.buildDirectory
 }

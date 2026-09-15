@@ -18,8 +18,10 @@ pluginManagement {
 
 plugins {
     id "dev.flutter.flutter-plugin-loader" version "1.0.0"
-    id "com.android.application" version "8.3.2" apply false
-    id "org.jetbrains.kotlin.android" version "1.9.22" apply false
+    // Deliberately the last AGP 8.x: from AGP 9 only the new DSL is read, which
+    // the Flutter Gradle plugin does not yet apply cleanly.
+    id "com.android.application" version "8.13.2" apply false
+    id "org.jetbrains.kotlin.android" version "2.1.21" apply false
 }
 
 include ":app"
