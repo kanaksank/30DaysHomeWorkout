@@ -19,9 +19,11 @@ pluginManagement {
 plugins {
     id "dev.flutter.flutter-plugin-loader" version "1.0.0"
     // Deliberately the last AGP 8.x: from AGP 9 only the new DSL is read, which
-    // the Flutter Gradle plugin does not yet apply cleanly.
+    // needs an android.newDsl opt-out before the Flutter Gradle plugin applies.
+    // Flutter warns that 8.x support ends eventually; move to AGP 9 then.
     id "com.android.application" version "8.13.2" apply false
-    id "org.jetbrains.kotlin.android" version "2.1.21" apply false
+    // 2.2.20 is Flutter's current minimum Kotlin version.
+    id "org.jetbrains.kotlin.android" version "2.2.20" apply false
 }
 
 include ":app"
